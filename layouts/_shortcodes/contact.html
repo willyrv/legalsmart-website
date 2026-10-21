@@ -1,0 +1,13 @@
+{{- $c := site.Params.contact -}}
+<div class="contact-cards">
+  <a class="contact-card" href="mailto:{{ $c.email }}?subject={{ replace ("Demande d'atelier découverte" | urlquery) "+" "%20" }}">
+    <span class="contact-label">E-mail</span><span>{{ $c.email }}</span>
+  </a>
+  {{- with $c.phone }}
+  <a class="contact-card" href="tel:{{ $c.phone_link }}"><span class="contact-label">Téléphone</span><span>{{ . }}</span></a>
+  {{- end }}
+  <a class="contact-card" href="{{ $c.linkedin }}" rel="me noopener"><span class="contact-label">LinkedIn</span><span>{{ $c.name }}</span></a>
+  {{- with $c.booking_url }}
+  <a class="contact-card" href="{{ . }}" rel="noopener"><span class="contact-label">Rendez-vous</span><span>Choisir un créneau</span></a>
+  {{- end }}
+</div>

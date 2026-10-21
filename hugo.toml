@@ -1,0 +1,94 @@
+# Configuration du site Legal Smart.
+# Les coordonnées et informations légales se modifient ici, et nulle part ailleurs.
+
+baseURL = "https://legalsmart.ai/"
+locale = "fr-FR"
+defaultContentLanguage = "fr"
+title = "Legal Smart"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  tagline = "L'IA de confiance pour les professions du droit"
+  description = "Legal Smart accompagne les cabinets d'avocats, les études notariales et les directions juridiques dans l'utilisation de l'intelligence artificielle : de façon utile, simple et sécurisée, sans compromettre la confidentialité de leurs données."
+  location = "Toulouse — Occitanie et à distance partout en France"
+  og_image = "images/og-legal-smart.png"
+
+[params.contact]
+  name = "Willy Rodriguez"
+  role = "Fondateur, Legal Smart"
+  email = "willyrv@gmail.com"
+  phone = "06 52 25 97 90"
+  phone_link = "+33652259790"
+  linkedin = "https://www.linkedin.com/in/willyrv/"
+  # Lien de prise de rendez-vous (facultatif). Laisser vide pour proposer l'e-mail.
+  booking_url = ""
+
+# Informations obligatoires pour les mentions légales (LCEN).
+# Tant qu'un champ est vide, la construction affiche un avertissement
+# et la page indique « à compléter ».
+[params.legal]
+  editor = "Willy Rodriguez, entrepreneur individuel (micro-entreprise), exerçant sous le nom commercial Legal Smart"
+  address = ""
+  siret = ""
+  vat = ""
+  publication_director = "Willy Rodriguez"
+  host_name = ""
+  host_address = ""
+  host_phone = ""
+
+[menus]
+  [[menus.main]]
+    name = "Offres"
+    pageRef = "/offres"
+    weight = 10
+  [[menus.main]]
+    name = "Méthode"
+    pageRef = "/methode"
+    weight = 20
+  [[menus.main]]
+    name = "Confidentialité"
+    pageRef = "/securite"
+    weight = 30
+  [[menus.main]]
+    name = "Ressources"
+    pageRef = "/ressources"
+    weight = 40
+  [[menus.main]]
+    name = "À propos"
+    pageRef = "/a-propos"
+    weight = 50
+
+  [[menus.footer]]
+    name = "Mentions légales"
+    pageRef = "/mentions-legales"
+    weight = 10
+  [[menus.footer]]
+    name = "Politique de confidentialité"
+    pageRef = "/confidentialite"
+    weight = 20
+  [[menus.footer]]
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 30
+
+[markup.goldmark.renderer]
+  # Les contenus sont rédigés par le propriétaire du site : HTML autorisé (FAQ dépliable).
+  unsafe = true
+[markup.goldmark.extensions.typographer]
+  # Les guillemets français sont saisis directement dans les textes.
+  disable = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[sitemap]
+  changeFreq = "monthly"
+
+[minify]
+  minifyOutput = true
+
+[build]
+  [build.buildStats]
+    enable = false

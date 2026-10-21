@@ -1,0 +1,30 @@
+{{- /* Grille des offres. Paramètre : "compact" (bool) pour la page d'accueil. */ -}}
+{{- $o := hugo.Data.offres -}}
+{{- $compact := .compact | default false -}}
+<div class="offres{{ if $compact }} offres-compact{{ end }}">
+  {{- range $i, $p := $o.portes }}
+  <article class="offre offre-{{ $p.id }}">
+    <p class="offre-num">{{ add $i 1 }}</p>
+    <h3>{{ $p.titre }}</h3>
+    <p class="offre-accroche">{{ $p.accroche }}</p>
+    {{- if $compact }}
+    <p class="offre-from">{{ $p.from }}</p>
+    <ul class="plain offre-liste">
+      {{- range $p.items }}<li>{{ .nom }}</li>{{ end }}
+    </ul>
+    {{- else }}
+    <dl class="tarifs">
+      {{- range $p.items }}
+      <div class="tarif{{ if .mise_en_avant }} tarif-offert{{ end }}">
+        <dt>{{ .nom }}</dt>
+        <dd>{{ .prix }}</dd>
+      </div>
+      {{- end }}
+    </dl>
+    {{- end }}
+  </article>
+  {{- end }}
+</div>
+{{- if not $compact }}
+<p class="note">{{ $o.note }}</p>
+{{- end }}

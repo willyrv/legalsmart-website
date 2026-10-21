@@ -1,0 +1,27 @@
+{{- $current := . -}}
+{{- define "partials/inline/nav-links" -}}
+  {{- $page := .page -}}
+  {{- range site.Menus.main }}
+    {{- $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) (and .Page (eq $page.Section .Page.Section) (ne $page.Section "")) }}
+    <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+  {{- end }}
+{{- end -}}
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="Legal Smart — accueil">
+      <span class="brand-mark" aria-hidden="true">§</span>
+      <span class="brand-name">Legal Smart</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      {{ partial "inline/nav-links" (dict "page" $current) }}
+    </nav>
+    <a class="btn btn-small nav-cta" href="{{ "/contact/" | relURL }}">Atelier découverte</a>
+    <details class="nav-mobile">
+      <summary aria-label="Ouvrir le menu"><span class="burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Navigation principale (mobile)">
+        {{ partial "inline/nav-links" (dict "page" $current) }}
+        <a class="btn" href="{{ "/contact/" | relURL }}">Réserver un atelier découverte</a>
+      </nav>
+    </details>
+  </div>
+</header>

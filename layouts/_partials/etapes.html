@@ -1,0 +1,16 @@
+{{- /* Les six étapes. Paramètre : "livrables" (bool) pour afficher les livrables. */ -}}
+{{- $livrables := .livrables | default false -}}
+<ol class="etapes">
+  {{- range $i, $e := hugo.Data.etapes }}
+  <li class="etape">
+    <span class="etape-num" aria-hidden="true">{{ add $i 1 }}</span>
+    <div>
+      <h3>{{ $e.titre }}</h3>
+      <p>{{ $e.texte }}</p>
+      {{- if $livrables }}
+      <p class="livrable"><span>Livrable</span> {{ $e.livrable }}</p>
+      {{- end }}
+    </div>
+  </li>
+  {{- end }}
+</ol>

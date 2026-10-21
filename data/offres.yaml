@@ -1,0 +1,39 @@
+# Grille tarifaire (ordres de grandeur, hors taxes) — source : plaquette commerciale finale.
+# « from » est le montant affiché en « à partir de » sur la page d'accueil.
+intro: "Commencez petit, avancez à votre rythme. Les tarifs ci-dessous sont des ordres de grandeur, hors taxes."
+note: "Les tarifs sont adaptés au périmètre, au volume de documents, au nombre d'utilisateurs, aux intégrations nécessaires, au niveau de sécurité attendu et au type d'hébergement. Un devis détaillé est remis après l'atelier découverte."
+portes:
+  - id: decouvrir
+    titre: Découvrir
+    accroche: Comprendre vos usages et sécuriser les pratiques
+    from: "Atelier découverte offert"
+    items:
+      - nom: Atelier découverte — 2 heures
+        prix: Offert
+        mise_en_avant: true
+      - nom: Audit IA — première analyse des usages et des risques
+        prix: "1 500 €"
+      - nom: Atelier de sensibilisation — ½ journée
+        prix: "1 200 €"
+      - nom: Formation IA pour les métiers du droit — 1 journée
+        prix: "2 000 à 3 000 €"
+  - id: experimenter
+    titre: Expérimenter
+    accroche: Tester une solution sur vos propres documents
+    from: "À partir de 3 500 €"
+    items:
+      - nom: Diagnostic IA complet — besoins, données, feuille de route
+        prix: "3 500 €"
+      - nom: Prototype d'assistant documentaire
+        prix: "8 000 à 15 000 €"
+  - id: deployer
+    titre: Déployer
+    accroche: Installer la solution et la faire vivre
+    from: "À partir de 20 000 €"
+    items:
+      - nom: Déploiement complet
+        prix: "20 000 à 40 000 €"
+      - nom: Accompagnement mensuel
+        prix: "800 à 3 000 €/mois"
+      - nom: Maintenance et hébergement sécurisé
+        prix: "300 à 1 500 €/mois"

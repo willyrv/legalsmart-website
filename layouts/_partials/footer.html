@@ -1,0 +1,30 @@
+{{- $c := site.Params.contact -}}
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="brand brand-footer"><span class="brand-mark" aria-hidden="true">§</span> <span class="brand-name">Legal Smart</span></p>
+      <p>{{ site.Params.tagline }}.</p>
+      <p class="muted">{{ site.Params.location }}</p>
+    </div>
+    <div>
+      <p class="footer-title">Contact</p>
+      <ul class="plain">
+        <li><a href="mailto:{{ $c.email }}">{{ $c.email }}</a></li>
+        {{- with $c.phone }}<li><a href="tel:{{ $c.phone_link }}">{{ . }}</a></li>{{ end }}
+        <li><a href="{{ $c.linkedin }}" rel="me noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-title">Informations</p>
+      <ul class="plain">
+        {{- range site.Menus.footer }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+        <li><a href="{{ "ressources/index.xml" | relURL }}">Flux RSS des ressources</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {{ now.Year }} Legal Smart. Ce site n'utilise aucun cookie ni outil de suivi.</p>
+  </div>
+</footer>

@@ -1,0 +1,157 @@
+{{ define "main" }}
+{{- $a := hugo.Data.accueil -}}
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow eyebrow-light">Cabinets d'avocats · Études notariales · Directions juridiques</p>
+    <h1>{{ .Params.hero_titre }}</h1>
+    <p class="hero-lead">{{ .Params.hero_texte }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-bronze" href="{{ "/contact/" | relURL }}">Réserver un atelier découverte offert</a>
+      <a class="btn btn-ghost-light" href="{{ "/offres/" | relURL }}">Voir les offres</a>
+    </div>
+    <p class="hero-note">Conseil · Accompagnement · Intégration · Développement · Formation</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="enjeux">
+  <div class="container">
+    <p class="eyebrow">Les enjeux</p>
+    <h2 id="enjeux">{{ $a.enjeux.titre }}</h2>
+    <p class="lead">{{ $a.enjeux.intro }}</p>
+    <div class="cards cards-3">
+      {{- range $a.enjeux.items }}
+      <div class="card">
+        <h3>{{ .titre }}</h3>
+        <p>{{ .texte }}</p>
+      </div>
+      {{- end }}
+    </div>
+    <p class="statement">{{ $a.enjeux.conclusion }}</p>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="rag">
+  <div class="container split">
+    <div>
+      <p class="eyebrow">L'assistant documentaire</p>
+      <h2 id="rag">Une IA qui répond à partir de vos propres documents</h2>
+      <p>Imaginez un collaborateur à qui vous posez une question. Avant de répondre, il ouvre le dossier, retrouve les passages utiles et vous répond en indiquant les pièces. C'est exactement ce que fait un assistant documentaire (on parle aussi de « RAG ») :</p>
+      <ol class="steps-mini">
+        <li><strong>Il recherche</strong> d'abord les passages pertinents dans les documents de votre organisation.</li>
+        <li><strong>Il rédige</strong> une réponse à partir de ces passages, et seulement d'eux.</li>
+        <li><strong>Il cite ses sources</strong>, pour que vous puissiez vérifier.</li>
+      </ol>
+      <p>Résultat : des réponses plus faciles à vérifier, sous le contrôle du professionnel.</p>
+      <p><a class="link-arrow" href="{{ "/ressources/le-rag-explique-en-60-secondes/" | relURL }}">Le RAG expliqué en 60 secondes</a></p>
+    </div>
+    {{ partial "demo.html" . }}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="solutions">
+  <div class="container">
+    <p class="eyebrow">Ce que nous mettons en place</p>
+    <h2 id="solutions">{{ $a.solutions.titre }}</h2>
+    <div class="cards cards-3">
+      {{- range $a.solutions.items }}
+      <div class="card card-line">
+        <h3>{{ .titre }}</h3>
+        <p>{{ .texte }}</p>
+      </div>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" aria-labelledby="maitrise">
+  <div class="container">
+    <p class="eyebrow eyebrow-light">Confidentialité</p>
+    <h2 id="maitrise">Vos documents restent là où vous l'avez décidé</h2>
+    <p class="lead">L'hébergement de la solution est choisi selon la sensibilité de vos dossiers, pas imposé par un éditeur.</p>
+    <div class="cards cards-3">
+      <div class="card card-dark">
+        <h3>Sur site</h3>
+        <p>La solution fonctionne sur un serveur du cabinet. Adapté aux dossiers couverts par le secret professionnel.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>Cloud souverain</h3>
+        <p>Hébergement chez un fournisseur français ou européen, avec un contrat de sous-traitance et des données localisées.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>Selon la sensibilité</h3>
+        <p>Chaque espace documentaire a son niveau : un modèle hébergé hors du cabinet ne peut pas lire les dossiers les plus sensibles.</p>
+      </div>
+    </div>
+    <p><a class="link-arrow link-light" href="{{ "/securite/" | relURL }}">Notre approche de la confidentialité</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="methode">
+  <div class="container">
+    <p class="eyebrow">La méthode</p>
+    <h2 id="methode">Six étapes. Vous décidez à chaque fois.</h2>
+    <p class="lead">Une démarche progressive, adaptée à votre organisation, à vos données et à vos contraintes.</p>
+    {{ partial "etapes.html" (dict "livrables" false) }}
+    <p><a class="link-arrow" href="{{ "/methode/" | relURL }}">Le détail de la méthode et des livrables</a></p>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="offres">
+  <div class="container">
+    <p class="eyebrow">Offres</p>
+    <h2 id="offres">Trois portes d'entrée</h2>
+    <p class="lead">{{ hugo.Data.offres.intro }}</p>
+    {{ partial "offres.html" (dict "compact" true) }}
+    <p><a class="link-arrow" href="{{ "/offres/" | relURL }}">Toutes les offres et les tarifs</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="benefices">
+  <div class="container">
+    <p class="eyebrow">Les bénéfices</p>
+    <h2 id="benefices">Gagner du temps, sans perdre la maîtrise</h2>
+    <div class="split split-even">
+      <div class="card">
+        <h3>Productivité</h3>
+        <ul class="checks">{{ range $a.benefices.productivite }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+      <div class="card">
+        <h3>Sécurité et qualité</h3>
+        <ul class="checks">{{ range $a.benefices.securite }}<li>{{ . }}</li>{{ end }}</ul>
+      </div>
+    </div>
+    <blockquote class="principe">
+      <p>L'IA ne remplace pas le jugement professionnel. Elle prépare, recherche et propose ; le professionnel vérifie, décide et garde la responsabilité.</p>
+    </blockquote>
+    <p class="note center">Les gains de temps sont mesurés pendant le prototype, sur vos propres cas d'usage : nous ne promettons pas de chiffre avant de l'avoir constaté avec vous.</p>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="fondateur">
+  <div class="container founder">
+    <div class="founder-mark" aria-hidden="true">WR</div>
+    <div>
+      <p class="eyebrow">Pourquoi Legal Smart</p>
+      <h2 id="fondateur">Une expertise technique, au service de vos exigences</h2>
+      <p><strong>{{ site.Params.contact.name }}</strong>, fondateur. Docteur en mathématiques appliquées, plus de 10 ans d'expérience en intelligence artificielle, notamment sur des projets à données sensibles où la confidentialité, la sécurité et la traçabilité sont essentielles.</p>
+      <p>Un seul interlocuteur, de l'audit au suivi. Indépendant des éditeurs : nous sélectionnons, combinons, intégrons ou développons la solution adaptée à vos usages.</p>
+      <p><a class="link-arrow" href="{{ "/a-propos/" | relURL }}">En savoir plus</a></p>
+    </div>
+  </div>
+</section>
+
+{{- with first 3 (where site.RegularPages "Section" "ressources") }}
+<section class="section" aria-labelledby="ressources">
+  <div class="container">
+    <p class="eyebrow">Ressources</p>
+    <h2 id="ressources">Comprendre avant de décider</h2>
+    <div class="cards cards-3">
+      {{- range . }}{{ partial "article-card.html" . }}{{ end }}
+    </div>
+    <p><a class="link-arrow" href="{{ "/ressources/" | relURL }}">Toutes les ressources</a></p>
+  </div>
+</section>
+{{- end }}
+
+{{ partial "cta.html" . }}
+{{ end }}

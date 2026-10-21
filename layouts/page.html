@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{- $article := eq .Section "ressources" -}}
+<header class="page-hero">
+  <div class="container narrow">
+    {{- if $article }}
+    <p class="eyebrow eyebrow-light"><a href="{{ "/ressources/" | relURL }}">Ressources</a></p>
+    {{- else if .Params.eyebrow }}
+    <p class="eyebrow eyebrow-light">{{ .Params.eyebrow }}</p>
+    {{- end }}
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lead }}<p class="page-lead">{{ . }}</p>{{ end }}
+    {{- if $article }}
+    <p class="meta meta-light">{{ .Date | time.Format ":date_long" }} · {{ .ReadingTime }} min de lecture · {{ site.Params.contact.name }}</p>
+    {{- end }}
+  </div>
+</header>
+<div class="section">
+  <div class="container {{ if .Params.wide }}wide-content{{ else }}narrow{{ end }} prose">
+    {{ .Content }}
+  </div>
+</div>
+{{- if $article }}
+{{- $others := where (where site.RegularPages "Section" "ressources") "RelPermalink" "ne" .RelPermalink | first 3 -}}
+{{- with $others }}
+<section class="section section-alt" aria-labelledby="autres">
+  <div class="container">
+    <h2 id="autres">À lire aussi</h2>
+    <div class="cards cards-3">{{ range . }}{{ partial "article-card.html" . }}{{ end }}</div>
+  </div>
+</section>
+{{- end }}
+{{- end }}
+{{- if ne .Params.cta false }}{{ partial "cta.html" . }}{{ end }}
+{{ end }}

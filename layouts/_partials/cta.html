@@ -1,0 +1,24 @@
+{{- $c := site.Params.contact -}}
+<section class="cta-band" aria-labelledby="cta-titre">
+  <div class="container cta-inner">
+    <div>
+      <p class="eyebrow eyebrow-light">Prochaine étape</p>
+      <h2 id="cta-titre">Parlons de vos usages et de vos contraintes.</h2>
+      <p>Atelier découverte de 2 heures, <strong>offert et sans engagement</strong>, dans vos locaux ou en visioconférence.</p>
+      <ul class="checks checks-light">
+        <li>Comprendre vos usages actuels</li>
+        <li>Identifier les premiers cas d'usage</li>
+        <li>Repérer les risques et les points de vigilance</li>
+        <li>Définir une première feuille de route</li>
+      </ul>
+    </div>
+    <div class="cta-actions">
+      {{- if $c.booking_url }}
+      <a class="btn btn-bronze" href="{{ $c.booking_url }}" rel="noopener">Choisir un créneau</a>
+      {{- else }}
+      <a class="btn btn-bronze" href="mailto:{{ $c.email }}?subject={{ replace ("Demande d'atelier découverte" | urlquery) "+" "%20" }}">Demander un atelier</a>
+      {{- end }}
+      <a class="btn btn-ghost-light" href="{{ "/contact/" | relURL }}">Toutes les coordonnées</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+# La méthode en six étapes — source : plaquette commerciale finale.
+- titre: Diagnostic
+  texte: Comprendre vos usages, vos documents, vos contraintes et vos priorités.
+  livrable: Cartographie des usages et des risques
+- titre: Atelier métier
+  texte: Identifier avec vos équipes les tâches où l'IA apporte une valeur réelle.
+  livrable: Cas d'usage priorisés
+- titre: Prototype
+  texte: Tester rapidement une solution sur un périmètre limité, avec vos documents.
+  livrable: Démonstrateur et critères de réussite
+- titre: Déploiement sécurisé
+  texte: Installer la solution dans un environnement maîtrisé, avec des accès contrôlés.
+  livrable: Solution intégrée et documentée
+- titre: Formation des équipes
+  texte: Expliquer les outils, leurs possibilités, leurs limites et les bonnes pratiques.
+  livrable: Équipes autonomes
+- titre: Suivi et amélioration
+  texte: Mesurer les résultats, corriger les difficultés, faire évoluer la solution.
+  livrable: Bilan d'usage, évolutions

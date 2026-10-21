@@ -1,0 +1,50 @@
+# Blocs de la page d'accueil — source : plaquette commerciale finale.
+enjeux:
+  titre: "L'IA est déjà dans les cabinets. Le cadre, pas toujours."
+  intro: Les professionnels du droit voient le potentiel de l'intelligence artificielle, mais se heurtent à des questions très concrètes.
+  conclusion: "La difficulté n'est pas seulement de choisir une IA, mais de l'intégrer de manière utile, maîtrisée et durable."
+  items:
+    - titre: Du temps perdu
+      texte: Retrouver une information dans des dossiers volumineux et dispersés prend trop de temps.
+    - titre: Une surcharge documentaire
+      texte: "Modèles, consultations, actes, e-mails : le savoir du cabinet est difficile à capitaliser et à transmettre."
+    - titre: Des outils utilisés sans cadre
+      texte: Des collaborateurs utilisent déjà des outils d'IA publics, sans règles claires.
+    - titre: La confidentialité
+      texte: Quelles données peut-on confier, à quel outil, et dans quelles conditions ?
+    - titre: Les réponses erronées
+      texte: "Une IA peut produire une réponse plausible mais fausse : il faut pouvoir vérifier."
+    - titre: Les bons cas d'usage
+      texte: Difficile de savoir quelles tâches peuvent vraiment être améliorées, et avec quel outil.
+
+solutions:
+  titre: Des solutions choisies pour vos usages, pas pour la technologie
+  items:
+    - titre: Audit des usages et des risques
+      texte: Où en êtes-vous, quels outils sont utilisés, quels risques existent ?
+    - titre: Feuille de route
+      texte: Les cas d'usage prioritaires, le budget, le calendrier.
+    - titre: Assistant documentaire
+      texte: Retrouver, résumer et comparer les informations dans vos documents.
+    - titre: Automatisations
+      texte: "Réduire les tâches répétitives : préparation de dossiers, premières analyses."
+    - titre: IA privée
+      texte: Un modèle d'IA pouvant fonctionner dans un environnement maîtrisé par le cabinet.
+    - titre: Formation des équipes
+      texte: Usages, limites, bonnes pratiques, règles de confidentialité.
+
+benefices:
+  productivite:
+    - Retrouver plus rapidement une information
+    - Résumer un dossier volumineux
+    - Préparer plus facilement une première analyse
+    - Capitaliser et réutiliser la connaissance du cabinet
+    - Réduire les tâches répétitives
+    - Faciliter l'intégration des nouveaux collaborateurs
+  securite:
+    - Protéger les documents confidentiels
+    - Maîtriser les droits d'accès
+    - Obtenir des réponses accompagnées de leurs sources
+    - Réduire les usages non encadrés
+    - Conserver un contrôle humain sur les résultats
+    - Développer une utilisation responsable de l'IA

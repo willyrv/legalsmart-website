@@ -1,0 +1,14 @@
+{{ define "main" }}
+<header class="page-hero">
+  <div class="container narrow">
+    <p class="eyebrow eyebrow-light">Erreur 404</p>
+    <h1>Cette page n'existe pas ou a été déplacée.</h1>
+    <p class="page-lead">Vous pouvez revenir à l'accueil ou consulter nos offres.</p>
+  </div>
+</header>
+<div class="section">
+  <div class="container narrow">
+    <p><a class="btn" href="{{ "/" | relURL }}">Retour à l'accueil</a> <a class="btn btn-ghost" href="{{ "/offres/" | relURL }}">Voir les offres</a></p>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,5 @@
+<article class="card card-article">
+  <p class="meta">{{ .Date | time.Format ":date_long" }} · {{ .ReadingTime }} min de lecture</p>
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p>{{ .Description | default .Summary | plainify | truncate 180 }}</p>
+</article>

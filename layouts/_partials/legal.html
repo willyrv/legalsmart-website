@@ -1,0 +1,8 @@
+{{- /* Affiche une information légale de hugo.toml, ou « à compléter » avec un avertissement. */ -}}
+{{- $value := index site.Params.legal . -}}
+{{- if $value -}}
+{{ $value }}
+{{- else -}}
+{{- warnf "Mentions légales : le champ params.legal.%s est vide dans hugo.toml" . -}}
+<mark>[à compléter]</mark>
+{{- end -}}

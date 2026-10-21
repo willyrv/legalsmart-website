@@ -1,0 +1,47 @@
+{{- $title := cond .IsHome (printf "%s — %s" site.Title site.Params.tagline) (printf "%s — %s" .Title site.Title) -}}
+{{- $description := .Description | default .Summary | default site.Params.description | plainify | truncate 160 -}}
+{{- $image := site.Params.og_image | absURL -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="theme-color" content="#0f4c5c">
+<meta name="color-scheme" content="light">
+
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ cond (eq .Section "ressources") "article" "website" }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }} — Ressources" href="{{ .Permalink }}">
+{{- end }}
+{{- with resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
+
+{{- if .IsHome }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "ProfessionalService"
+  "name" site.Title
+  "description" site.Params.description
+  "url" site.BaseURL
+  "email" site.Params.contact.email
+  "telephone" site.Params.contact.phone_link
+  "areaServed" "FR"
+  "address" (dict "@type" "PostalAddress" "addressLocality" "Toulouse" "addressCountry" "FR")
+  "founder" (dict "@type" "Person" "name" site.Params.contact.name)
+  "sameAs" (slice site.Params.contact.linkedin)
+  | jsonify | safeJS }}
+</script>
+{{- end }}
