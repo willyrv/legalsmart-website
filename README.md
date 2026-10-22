@@ -3,7 +3,7 @@
 Site statique de présentation de Legal Smart, construit avec [Hugo](https://gohugo.io). Il est :
 
 - **sans cookie, sans traceur, sans ressource externe** ;
-- **sans JavaScript** ;
+- **sans JavaScript**, à une exception : le bouton qui affiche le numéro de téléphone au clic, pour le cacher aux robots ;
 - **rapide**, et hébergeable n'importe où.
 
 Les choix techniques sont expliqués dans [docs/CHOIX-TECHNIQUES.md](docs/CHOIX-TECHNIQUES.md).

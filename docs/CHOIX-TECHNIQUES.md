@@ -37,7 +37,7 @@ Un site statique répond à tout cela. Il n'y a rien à pirater côté serveur, 
 - **Les coordonnées** sont regroupées dans `hugo.toml`.
 - **La version de Hugo est épinglée** (`.hugo-version` et intégration continue) : le site se construit de la même façon dans cinq ans.
 - **Aucune chaîne CSS** (Sass, Tailwind…) : un seul fichier `assets/css/main.css`, minifié et versionné par Hugo.
-- **Aucun JavaScript**, menu mobile compris. Rien ne peut casser côté navigateur.
+- **Presque aucun JavaScript**, menu mobile compris. Seule exception : quelques lignes, écrites dans la page, qui affichent le numéro de téléphone au clic (`layouts/_partials/tel-script.html`). Le numéro n'est pas en clair dans les pages, pour le protéger des robots qui collectent les numéros. Il n'est pas non plus dans les données structurées pour Google. Sans JavaScript, le bouton reste masqué et le reste du site fonctionne.
 
 **Option d'édition sans code :** un CMS « Git » léger peut se brancher plus tard, par exemple [Pages CMS](https://pagescms.org) ou Decap CMS. Il offre un formulaire web pour modifier textes et tarifs, qui enregistre directement dans le dépôt GitHub. Il n'est pas nécessaire au démarrage.
 

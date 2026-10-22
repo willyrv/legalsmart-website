@@ -10,7 +10,7 @@
       <p class="footer-title">Contact</p>
       <ul class="plain">
         <li><a href="mailto:{{ $c.email }}">{{ $c.email }}</a></li>
-        {{- with $c.phone }}<li><a href="tel:{{ $c.phone_link }}">{{ . }}</a></li>{{ end }}
+        {{- with $c.phone }}<li><button type="button" class="link-button" data-tel="{{ partial "tel-code.html" . }}" hidden><span data-tel-text>Afficher le téléphone</span></button></li>{{ end }}
         <li><a href="{{ $c.linkedin }}" rel="me noopener">LinkedIn</a></li>
       </ul>
     </div>

@@ -1,0 +1,9 @@
+{{- /*
+  Numéro de téléphone encodé, pour qu'il n'apparaisse pas en clair dans les pages
+  (protection contre les robots qui collectent les numéros).
+  « numéro affiché|numéro du lien », encodé en base64 puis inversé.
+  Décodé au clic par le script de tel-script.html.
+*/ -}}
+{{- $c := site.Params.contact -}}
+{{- $code := printf "%s|%s" $c.phone $c.phone_link | base64Encode -}}
+{{- return delimit (collections.Reverse (split $code "")) "" -}}

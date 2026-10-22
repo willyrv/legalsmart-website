@@ -242,6 +242,9 @@ mark { background: #fbe7b5; padding: 0 4px; border-radius: 3px; }
 .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 1.6em 0; }
 .contact-card { display: flex; flex-direction: column; gap: 4px; padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: var(--ink); background: var(--white); transition: border-color .15s, box-shadow .15s; word-break: break-word; }
 .contact-card:hover { border-color: var(--petrol); box-shadow: var(--shadow); color: var(--ink); }
+button.contact-card { font: inherit; text-align: left; cursor: pointer; }
+[hidden] { display: none !important; }
+.link-button { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: left; }
 .contact-label { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--bronze-text); }
 
 .faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
@@ -253,8 +256,8 @@ mark { background: #fbe7b5; padding: 0 4px; border-radius: 3px; }
 
 /* Pied de page */
 .site-footer { background: var(--ink); color: #c9cfd1; font-size: .95rem; padding-top: 56px; }
-.site-footer a { color: #e6eaeb; text-decoration: none; }
-.site-footer a:hover { color: var(--white); text-decoration: underline; }
+.site-footer a, .site-footer .link-button { color: #e6eaeb; text-decoration: none; }
+.site-footer a:hover, .site-footer .link-button:hover { color: var(--white); text-decoration: underline; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-bottom: 40px; }
 .brand-footer { margin-bottom: 10px; }
 .brand-footer .brand-name { color: var(--white); }

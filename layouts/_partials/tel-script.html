@@ -1,0 +1,21 @@
+{{- /*
+  Seul script du site : affiche le numéro de téléphone au clic sur un bouton
+  [data-tel] (voir tel-code.html). Sans JavaScript, les boutons restent masqués.
+*/ -}}
+{{- with site.Params.contact.phone }}
+<script>
+document.querySelectorAll("[data-tel]").forEach(function (b) {
+  b.hidden = false;
+  b.addEventListener("click", function () {
+    var t = atob(b.dataset.tel.split("").reverse().join("")).split("|");
+    var a = document.createElement("a");
+    a.href = "tel:" + t[1];
+    a.className = b.className;
+    while (b.firstChild) a.appendChild(b.firstChild);
+    a.querySelector("[data-tel-text]").textContent = t[0];
+    b.replaceWith(a);
+    a.focus();
+  });
+});
+</script>
+{{- end }}

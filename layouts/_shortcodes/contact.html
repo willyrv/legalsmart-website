@@ -4,7 +4,7 @@
     <span class="contact-label">E-mail</span><span>{{ $c.email }}</span>
   </a>
   {{- with $c.phone }}
-  <a class="contact-card" href="tel:{{ $c.phone_link }}"><span class="contact-label">Téléphone</span><span>{{ . }}</span></a>
+  <button type="button" class="contact-card" data-tel="{{ partial "tel-code.html" . }}" hidden><span class="contact-label">Téléphone</span><span data-tel-text>Afficher le numéro</span></button>
   {{- end }}
   <a class="contact-card" href="{{ $c.linkedin }}" rel="me noopener"><span class="contact-label">LinkedIn</span><span>{{ $c.name }}</span></a>
   {{- with $c.booking_url }}
