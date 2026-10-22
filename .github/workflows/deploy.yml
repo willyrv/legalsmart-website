@@ -1,6 +1,8 @@
 # Construit le site à chaque modification, vérifie les liens, puis publie sur l'hébergeur.
-# La publication ne s'active que si la variable de dépôt DEPLOY_ENABLED vaut "true"
+# La publication par rsync ne s'active que si la variable de dépôt DEPLOY_ENABLED vaut "true"
 # et que les secrets DEPLOY_* sont renseignés (voir README).
+# Cloudflare Pages construit et publie le site lui-même à chaque push ; chaque matin,
+# le job rebuild-cloudflare lui demande en plus une reconstruction (secret CLOUDFLARE_DEPLOY_HOOK).
 name: Construire et publier le site
 
 on:
@@ -69,3 +71,21 @@ jobs:
           printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
           rsync -az --delete -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
             public/ "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH%/}/"
+
+  # Cloudflare Pages ne reconstruit le site qu'à chaque push. Chaque matin, ce job
+  # appelle son « deploy hook » pour publier les articles dont la date est arrivée.
+  rebuild-cloudflare:
+    needs: build
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Demander une reconstruction à Cloudflare Pages
+        env:
+          CLOUDFLARE_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$CLOUDFLARE_DEPLOY_HOOK" ]; then
+            echo "Secret CLOUDFLARE_DEPLOY_HOOK absent : rien à faire."
+            exit 0
+          fi
+          curl -fsS -X POST "$CLOUDFLARE_DEPLOY_HOOK" > /dev/null
+          echo "Reconstruction demandée."

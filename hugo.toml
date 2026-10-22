@@ -13,6 +13,9 @@ disableKinds = ["taxonomy", "term"]
   description = "Legal Smart accompagne les cabinets d'avocats, les études notariales et les directions juridiques dans l'utilisation de l'intelligence artificielle : de façon utile, simple et sécurisée, sans compromettre la confidentialité de leurs données."
   location = "Toulouse — Occitanie et à distance partout en France"
   og_image = "images/og-legal-smart.png"
+  # true : demande aux moteurs de recherche de ne pas indexer le site (version de prévisualisation).
+  # Se règle chez l'hébergeur avec la variable d'environnement HUGO_PARAMS_NOINDEX=true.
+  noindex = false
 
 [params.contact]
   name = "Willy Rodriguez"
@@ -33,9 +36,10 @@ disableKinds = ["taxonomy", "term"]
   siret = ""
   vat = ""
   publication_director = "Willy Rodriguez"
-  host_name = ""
-  host_address = ""
-  host_phone = ""
+  # Hébergeur actuel : Cloudflare Pages. À changer en cas de changement d'hébergeur.
+  host_name = "Cloudflare, Inc."
+  host_address = "101 Townsend Street, San Francisco, CA 94107, États-Unis"
+  host_phone = "+1 888 993 5273"
 
 [menus]
   [[menus.main]]

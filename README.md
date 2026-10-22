@@ -66,6 +66,20 @@ Le script signale les liens cassés, toute ressource chargée depuis un autre si
 
 ## Mettre en ligne
 
+### Version actuelle : Cloudflare Pages (legalsmart.willyrv.com)
+
+Cloudflare Pages construit et publie le site lui-même à chaque `git push` sur `main`. Réglages du projet Pages :
+
+- Build command : `hugo --gc --minify` ; output directory : `public` ;
+- variables d'environnement :
+  - `HUGO_VERSION` = la version de `.hugo-version` ;
+  - `HUGO_BASEURL` = `https://legalsmart.willyrv.com/` (remplace `baseURL` de `hugo.toml`) ;
+  - `HUGO_PARAMS_NOINDEX` = `true`, tant que ce n'est qu'une prévisualisation (les moteurs de recherche n'indexent pas le site).
+
+Pour publier les articles programmés le jour venu, créer un *deploy hook* dans Cloudflare (Settings → Builds → Deploy hooks) et enregistrer son URL dans le secret GitHub `CLOUDFLARE_DEPLOY_HOOK`. Le workflow l'appelle chaque matin.
+
+### Hébergeur français par rsync
+
 À chaque `git push` sur `main`, GitHub Actions construit le site et le vérifie (`.github/workflows/deploy.yml`). Pour qu'il le **publie** aussi chez l'hébergeur :
 
 1. **Créer un hébergement** chez un acteur français acceptant SSH/rsync, par exemple OVHcloud (hébergement web avec accès SSH), alwaysdata, ou un petit serveur. Faire pointer le nom de domaine `legalsmart.ai` vers cet hébergement et activer le certificat HTTPS.
@@ -86,7 +100,7 @@ Le script signale les liens cassés, toute ressource chargée depuis un autre si
 
 ## Avant la mise en ligne
 
-- [ ] Compléter `[params.legal]` dans `hugo.toml` (adresse, SIRET, TVA, hébergeur). La construction affiche un avertissement tant que c'est vide.
+- [ ] Compléter `[params.legal]` dans `hugo.toml` (adresse, SIRET, TVA). La construction affiche un avertissement tant que c'est vide. L'hébergeur y est renseigné : le mettre à jour en cas de changement d'hébergeur.
 - [ ] Vérifier les coordonnées dans `[params.contact]`, et ajouter si souhaité un lien de prise de rendez-vous (`booking_url`).
 - [ ] Vérifier la disponibilité et la réservation du nom de domaine.
 - [ ] Relire les articles de `content/ressources/` : ils reprennent le plan LinkedIn et méritent des exemples vécus.

@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
+{{- if eq (string site.Params.noindex) "true" }}
+<meta name="robots" content="noindex">
+{{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="theme-color" content="#0f4c5c">
 <meta name="color-scheme" content="light">

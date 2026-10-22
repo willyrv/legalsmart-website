@@ -65,6 +65,8 @@ Le workflow `.github/workflows/deploy.yml` fonctionne ainsi :
 - **à chaque push** sur `main`, il construit le site avec la version épinglée de Hugo et vérifie les liens internes ;
 - **la publication par rsync** sur l'hébergeur ne s'active que lorsque ses secrets sont configurés (`DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_PATH`, `DEPLOY_SSH_KEY`).
 
+**Choix actuel (octobre 2026) :** une première version est publiée sur Cloudflare Pages, à l'adresse `legalsmart.willyrv.com`, car le DNS de `willyrv.com` est déjà chez Cloudflare. C'est gratuit et immédiat. Cette version de prévisualisation n'est pas indexée par les moteurs de recherche. Le choix d'un hébergeur français reste ouvert pour le site définitif sur `legalsmart.ai`. Le mode d'emploi est dans le README, section « Mettre en ligne ».
+
 ## 5. Choix éditoriaux
 
 - **Contenus repris des livrables validés** : plaquette commerciale finale (enjeux, solutions, méthode, tarifs, biographie), plan LinkedIn (articles), note de cohérence (formulations prudentes).
