@@ -1,6 +1,6 @@
 ---
 title: "Pourquoi exiger des réponses sourcées"
-date: 2026-10-21
+date: 2026-10-06
 description: "Pour un juriste, une réponse sans source n'est pas une réponse : c'est une hypothèse. Pourquoi les sources changent la donne, et leurs limites."
 ---
 

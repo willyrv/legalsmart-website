@@ -1,6 +1,6 @@
 ---
 title: "Peut-on envoyer un dossier client dans ChatGPT ?"
-date: 2026-10-21
+date: 2026-09-29
 description: "La réponse honnête tient en trois mots : pas sans cadre. Trois vérifications à faire avant de confier un document à un service d'IA."
 ---
 

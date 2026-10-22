@@ -1,6 +1,6 @@
 ---
 title: "Les trois erreurs à éviter quand un cabinet commence avec l'IA"
-date: 2026-10-21
+date: 2026-09-22
 description: "Laisser chacun se débrouiller, vouloir tout automatiser, oublier la formation : trois erreurs fréquentes, et comment les éviter."
 ---
 

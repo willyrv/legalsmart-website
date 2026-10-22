@@ -1,6 +1,6 @@
 ---
 title: "Le RAG expliqué à un avocat en 60 secondes"
-date: 2026-10-21
+date: 2026-09-15
 description: "Vous avez entendu « RAG » en réunion ? L'explication sans jargon : une IA qui recherche dans vos documents, répond à partir d'eux et cite ses sources."
 ---
 
