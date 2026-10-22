@@ -36,7 +36,7 @@ disableKinds = ["taxonomy", "term"]
   siret = ""
   vat = ""
   publication_director = "Willy Rodriguez"
-  # Hébergeur actuel : Cloudflare Pages. À changer en cas de changement d'hébergeur.
+  # Hébergeur actuel : Cloudflare. À changer en cas de changement d'hébergeur.
   host_name = "Cloudflare, Inc."
   host_address = "101 Townsend Street, San Francisco, CA 94107, États-Unis"
   host_phone = "+1 888 993 5273"

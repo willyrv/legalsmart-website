@@ -1,0 +1,13 @@
+// Configuration de publication sur Cloudflare (Workers, fichiers statiques).
+// Cloudflare construit le site avec « hugo --gc --minify », puis « npx wrangler deploy »
+// envoie simplement le dossier public/. Il n'y a aucun code exécuté côté serveur.
+// « name » doit rester identique au nom du Worker dans le tableau de bord Cloudflare.
+{
+  "name": "legalsmart-website",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": "./public",
+    // Les adresses inconnues affichent la page 404 du site.
+    "not_found_handling": "404-page"
+  }
+}

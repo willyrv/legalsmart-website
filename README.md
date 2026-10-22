@@ -66,12 +66,12 @@ Le script signale les liens cassés, toute ressource chargée depuis un autre si
 
 ## Mettre en ligne
 
-### Version actuelle : Cloudflare Pages (legalsmart.willyrv.com)
+### Version actuelle : Cloudflare (legalsmart.willyrv.com)
 
-Cloudflare Pages construit et publie le site lui-même à chaque `git push` sur `main`. Réglages du projet Pages :
+Un Worker Cloudflare relié au dépôt GitHub (Workers & Pages → `legalsmart-website`) construit et publie le site lui-même à chaque `git push` sur `main`. Le Worker ne fait que servir les fichiers de `public/`, selon `wrangler.jsonc`. Réglages (Settings → Build) :
 
-- Build command : `hugo --gc --minify` ; output directory : `public` ;
-- variables d'environnement :
+- Build command : `hugo --gc --minify` ; deploy command : `npx wrangler deploy` ;
+- variables de construction (Build → Variables and secrets, et non les variables d'exécution) :
   - `HUGO_VERSION` = la version de `.hugo-version` ;
   - `HUGO_BASEURL` = `https://legalsmart.willyrv.com/` (remplace `baseURL` de `hugo.toml`) ;
   - `HUGO_PARAMS_NOINDEX` = `true`, tant que ce n'est qu'une prévisualisation (les moteurs de recherche n'indexent pas le site).
